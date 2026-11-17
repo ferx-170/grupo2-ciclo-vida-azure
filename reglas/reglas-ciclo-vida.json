@@ -1,0 +1,33 @@
+{
+  "rules": [
+    {
+      "enabled": true,
+      "name": "regla-factura-grupo2",
+      "type": "Lifecycle",
+      "definition": {
+        "actions": {
+          "baseBlob": {
+            "tierToCool": {
+              "daysAfterModificationGreaterThan": 30
+            },
+            "tierToArchive": {
+              "daysAfterLastTierChangeGreaterThan": 7,
+              "daysAfterModificationGreaterThan": 90
+            },
+            "delete": {
+              "daysAfterModificationGreaterThan": 365
+            }
+          }
+        },
+        "filters": {
+          "blobTypes": [
+            "blockBlob"
+          ],
+          "prefixMatch": [
+            "grupo2-ciclo-vida-tsp/facturas-2026/"
+          ]
+        }
+      }
+    }
+  ]
+}
